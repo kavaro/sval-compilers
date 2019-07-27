@@ -14,11 +14,9 @@ export default function createQueryCompiler(compileIterator, compileSort) {
       if (filterFn) {
         list = list.filter(filterFn)
       }
-      console.log(Date.now() - t)
       if (sortFn) {
         list = list.slice().sort(sortFn)
       }
-      console.log(Date.now() - t)
       if (typename(skip) !== 'number') {
         skip = 0
       }
