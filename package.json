@@ -1,0 +1,36 @@
+{
+  "name": "sval-compilers",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.8.0",
+    "jest": "^24.8.0",
+    "jest-cli": "^24.8.0",
+    "rollup": "^1.17.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^5.1.1"
+  },
+  "scripts": {
+    "clean": "rm -rf dist/*",
+    "start": "rollup -w -c rollup.config.dev.js",
+    "build": "yarn clean && rollup -c rollup.config.prod.js",
+    "test": "jest --watchAll",
+    "coverage": "jest --coverage",
+    "preversion": "yarn test && yarn build",
+    "postversion": "git push --tags && yarn publish --tag latest && git push && echo \"Successfully released version $npm_package_version!\"",
+    "publish-minor": "yarn version --minor",
+    "publish-major": "yarn version --major",
+    "publish-patch": "yarn version --patch"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "sval": "^0.4.6",
+    "type-name": "^2.0.2"
+  }
+}
