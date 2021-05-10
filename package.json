@@ -29,7 +29,7 @@
     "publish-patch": "yarn version --patch"
   },
   "dependencies": {
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "sval": "^0.4.6",
     "type-name": "^2.0.2"
   }
